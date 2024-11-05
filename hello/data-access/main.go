@@ -11,6 +11,7 @@ import (
 
 var db *sql.DB
 
+// DB table:Album columns
 type Album struct {
     ID     int64
     Title  string
@@ -64,7 +65,11 @@ func main() {
     fmt.Printf("ID of added album: %v\n", albID)
 }
 
-// albumsByArtist queries for albums that have the specified artist name.
+/**
+* DB接続し、パラメータから指定のデータ取得を取得
+* return: 取得したデータ
+* error: DB error
+*/
 func albumsByArtist(name string) ([]Album, error) {
     // An albums slice to hold data from returned rows.
     var albums []Album
